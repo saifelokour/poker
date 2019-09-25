@@ -1,6 +1,6 @@
 # Poker
 
-**TODO: Add description**
+Elixir library that determines the winning hand in a game of poker
 
 ## Installation
 
