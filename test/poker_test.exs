@@ -14,6 +14,8 @@ defmodule PokerTest do
     assert Poker.play(black: "2H 3D 5S 9C XH", white: "2C 3H 4S 8C AH") == "invalid hand(s)"
     # invalid suite
     assert Poker.play(black: "2H 3D 5S 9C KX", white: "2C 3H 4S 8C AH") == "invalid hand(s)"
+    # duplicate cards
+    assert Poker.play(black: "2H 3D 5S 9C KH", white: "2C 3H 4S 8C KH") == "invalid hand(s)"
   end
 
   test "hands must Tie" do
