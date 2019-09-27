@@ -87,21 +87,21 @@ defmodule Strategy do
   defp compare_cards({_, {_, []}}, {_, {_, []}}), do: :tie
 
   defp compare_cards(
-         {first_name, {first_strat, [{card_1, _suite_1} | remaining_cards_1]}},
-         {second_name, {second_strat, [{card_2, _suite_2} | remaining_cards_2]}}
+         {player_1, {strategy, [{card_1, _suite_1} | remaining_cards_1]}},
+         {player_2, {strategy, [{card_2, _suite_2} | remaining_cards_2]}}
        ) do
     cond do
       card_1 == card_2 ->
         compare_cards(
-          {first_name, {first_strat, remaining_cards_1}},
-          {second_name, {second_strat, remaining_cards_2}}
+          {player_1, {strategy, remaining_cards_1}},
+          {player_2, {strategy, remaining_cards_2}}
         )
 
       card_1 > card_2 ->
-        {first_name, format_strategy(first_strat, card_1)}
+        {player_1, format_strategy(strategy, card_1)}
 
       card_1 < card_2 ->
-        {second_name, format_strategy(second_strat, card_2)}
+        {player_2, format_strategy(strategy, card_2)}
     end
   end
 
